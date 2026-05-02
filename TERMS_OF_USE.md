@@ -1,6 +1,6 @@
 # Terms of Use
 
-Last Updated: [Insert Date]
+Last Updated: 21 May 2026
 
 Welcome to Rutuma – Period & Ovulation Tracker.
 
@@ -14,50 +14,66 @@ If you do not agree, please do not use the app.
 
 ## 2. Not Medical Advice
 
-Rutuma provides informational predictions only.
-It does not replace professional medical consultation.
+Rutuma provides informational predictions only. Cycle predictions, ovulation estimates, and fertility windows are based on mathematical models and may not be accurate for every individual.
+
+Rutuma does **not** replace professional medical consultation, diagnosis, or treatment. Always consult a qualified healthcare provider for medical decisions.
 
 ## 3. User Responsibilities
 
 You agree to:
 
-- Provide accurate information
-- Use the app legally
-- Not misuse, reverse engineer, or exploit the app
-- Not attempt unauthorized access
+- Provide accurate information for reliable predictions
+- Use the app in compliance with applicable laws
+- Not misuse, reverse engineer, decompile, or exploit the app
+- Not attempt unauthorized access to any part of the app
 
 ## 4. Subscriptions & Payments
 
-If you purchase a subscription:
+If you purchase a premium subscription:
 
-- Payments are processed through Apple App Store.
-- Subscriptions auto-renew unless canceled.
+- All payments are processed exclusively through the **Apple App Store**.
+- Subscriptions auto-renew unless canceled before the renewal date.
 - Cancellation must be done via your Apple ID settings.
-- Refunds are handled by Apple, not Rutuma.
+- Refunds are handled by Apple per their refund policy, not by Team Rutuma.
+- Team Rutuma does not collect, process, or store any payment information.
 
-## 5. Account Termination
+## 5. Data Ownership & Loss
 
-We reserve the right to suspend or terminate accounts that violate these Terms.
+All your data is stored locally on your device. Team Rutuma does not have access to, or copies of, your data.
 
-## 6. Limitation of Liability
+- **You are solely responsible for your data.**
+- If you delete the app or lose your device without creating a backup, your data is permanently lost and cannot be recovered by Team Rutuma.
+- Rutuma provides an encrypted backup feature for transferring data between devices. Use of this feature is optional and at your discretion.
 
-Rutuma shall not be liable for:
+## 6. Intellectual Property
+
+The Rutuma app, including its design, code, graphics, icons, and content, is the intellectual property of Team Rutuma. You may not reproduce, distribute, or create derivative works from any part of the app without prior written consent.
+
+## 7. Limitation of Liability
+
+Rutuma and Team Rutuma shall not be liable for:
 
 - Prediction inaccuracies
-- Pregnancy-related outcomes
-- Medical decisions
-- Data loss beyond reasonable control
-- Indirect or consequential damages
+- Pregnancy-related outcomes or decisions
+- Medical decisions based on app data
+- Data loss due to device loss, app deletion, or failure to create backups
+- Indirect, incidental, or consequential damages
 
 Use of the app is at your own risk.
 
-## 7. Governing Law
+## 8. Termination of Access
 
-These Terms shall be governed by the laws of [Insert Country – e.g., Singapore / India].
+Team Rutuma reserves the right to discontinue the app or restrict access to certain features at any time, with or without notice.
 
-## 8. Changes to Terms
+## 9. Changes to Terms
 
-We may update these Terms from time to time.
-Continued use of the app means acceptance of changes.
+We may update these Terms from time to time. Any changes will be reflected by updating the "Last Updated" date at the top of this page.
 
-Contact: [Insert Support Email]
+Continued use of the app after changes constitutes acceptance of the updated Terms.
+
+---
+
+For questions about these Terms, contact:
+
+**Team Rutuma**
+**support@rutuma.com**

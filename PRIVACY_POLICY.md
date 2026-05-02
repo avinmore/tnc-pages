@@ -1,137 +1,108 @@
 # Privacy Policy
 
-Last Updated: [Insert Date]
+Last Updated: 21 May 2026
 
 Rutuma – Period & Ovulation Tracker ("Rutuma", "we", "our", or "us") is committed to protecting your privacy and safeguarding your personal and health-related data.
 
-This Privacy Policy explains how we collect, use, store, and protect your information when you use our mobile application.
+This Privacy Policy explains how we handle your information when you use our mobile application.
 
 ---
 
-## 1. Information We Collect
+## 1. Data Storage — Local Only
 
-We collect information to provide and improve our services.
+**All your personal and health data is stored exclusively on your device.** Rutuma does not transmit, upload, or store your data on any external server or cloud service. We do not have access to your data at any time.
 
-### A. Account Information
-- Name (if provided)
-- Email address
-- Login credentials
-- Subscription status
+This includes:
+- Period dates and cycle length
+- Ovulation and fertility information
+- Symptoms and mood tracking
+- Medicine reminders and logs
+- Personal notes
+- App preferences and settings
 
-### B. Health & Sensitive Information (User-Provided)
-- Period dates
-- Cycle length
-- Ovulation information
-- Symptoms
-- Mood tracking
-- Pregnancy-related data
-- Personal notes entered by you
+We do **not** collect or store your email address, login credentials, or any personally identifiable account information on our servers.
 
-This information is provided voluntarily by you.
+---
 
-### C. Device & Technical Information
-- Device model
-- Operating system version
+## 2. Authentication
+
+Rutuma supports optional sign-in via Apple or Google for convenience. Authentication is handled entirely by Apple and Google respectively. We do not receive, store, or have access to your passwords or account credentials. Authentication tokens are stored securely on your device using the iOS Keychain.
+
+---
+
+## 3. Analytics & Crash Reporting
+
+To improve app stability and performance, Rutuma uses **Firebase Analytics** and **Firebase Crashlytics** (provided by Google). These services may collect:
+
+- Device model and operating system version
 - App version
-- Device identifiers (e.g., IDFA/IDFV where applicable)
-- Push notification token
-- IP address (for security & fraud prevention)
-- Approximate location (derived from IP)
+- Anonymous usage events (e.g., feature interactions, session duration)
+- Crash logs and diagnostic data
 
-### D. Usage & Analytics Data
-- Feature usage
-- Session duration
-- Interaction events
-- Crash logs and diagnostics
+This data is **anonymized** and does not include your health data, personal identity, or any information you enter into the app.
+
+We do **not** collect or track your IP address, geographic location, or any location-derived data.
+
+We do not use this data for advertising purposes.
 
 ---
 
-## 2. How We Use Your Information
+## 4. In-App Purchases
 
-We use collected information to:
-
-- Provide cycle predictions and tracking features
-- Sync data across devices
-- Improve app performance
-- Fix bugs and crashes
-- Personalize user experience
-- Provide customer support
-- Comply with legal obligations
-
-We do NOT sell your health data to third parties.
+Rutuma offers optional premium features via subscription. All payments are processed exclusively through the **Apple App Store**. We do not collect, process, or store any payment or billing information.
 
 ---
 
-## 3. Third-Party Services
+## 5. Data Backup & Transfer
 
-We may use trusted third-party providers to operate our services, including:
+Rutuma provides a backup feature that allows you to export your data as an **encrypted file**. This file can be used to transfer your data to another device if you change phones.
 
-- Firebase (Analytics and Crash Reporting)
-- Supabase (Database and backend infrastructure)
-- Apple (In-App Purchases, Authentication services)
+- The backup file is generated locally on your device.
+- You choose how and where to share or store this file (e.g., AirDrop, Files app, email).
+- Rutuma does not upload, access, or retain any copy of your backup file.
 
-These providers may process limited technical information necessary to deliver their services.
-
-We do not allow third parties to use your health data for advertising or resale purposes.
+**Important:** Since all data is stored locally, if you delete the app or lose your device without creating a backup, your data cannot be recovered. Team Rutuma has no ability to retrieve your data.
 
 ---
 
-## 4. Data Storage & Security
+## 6. Third-Party Services
 
-We implement industry-standard safeguards including:
+We use the following third-party services:
 
-- HTTPS encryption (data in transit)
-- Encrypted cloud storage (data at rest)
-- Authentication and access control mechanisms
-- Restricted internal data access
+| Service | Provider | Purpose |
+|---|---|---|
+| Firebase Analytics | Google | Anonymous usage analytics |
+| Firebase Crashlytics | Google | Crash reporting and diagnostics |
+| Sign in with Google | Google | Optional authentication |
+| App Store | Apple | In-App Purchases and subscriptions |
 
-While we strive to protect your information, no system can guarantee absolute security.
-
----
-
-## 5. Data Retention
-
-We retain your data as long as your account remains active.
-
-If you delete your account:
-- Your personal and health data will be permanently deleted from active systems.
-- Backup copies may be retained for a limited period (up to 30–90 days) for security and compliance purposes before automatic deletion.
+These providers may process limited, anonymized technical information necessary to deliver their services. **Your health data is never shared with any third party.**
 
 ---
 
-## 6. Your Rights & Choices
+## 7. Your Rights & Control
 
-Depending on your jurisdiction, you may have the right to:
+Since all data resides on your device, you have full control:
 
-- Access your data
-- Correct inaccurate data
-- Delete your account and associated data
-- Request a copy/export of your data
-- Withdraw consent for data processing
-- Opt out of marketing communications
+- **View your data** — All information is visible within the app.
+- **Export your data** — Use the built-in export feature (CSV, JSON, or PDF formats).
+- **Delete your data** — Delete the app to remove all data permanently, or use in-app settings to clear specific data.
+- **Backup your data** — Use the encrypted backup feature before deleting.
 
-To exercise these rights, contact us at:
-[Insert Support Email]
+No request to Team Rutuma is needed to exercise these rights — you are in complete control.
 
----
-
-## 7. International Data Transfers
-
-Your information may be processed and stored in countries outside your residence, including but not limited to Singapore, India, or regions where our service providers operate.
-
-By using Rutuma, you consent to such transfers.
+For any questions or concerns, contact us at: **support@rutuma.com**
 
 ---
 
-## 8. Advertising & Tracking (If Applicable)
+## 8. Advertising & Tracking
 
-If advertising features are introduced in the future:
+Rutuma does **not** engage in cross-app tracking.
 
-- We may use Apple’s App Tracking Transparency (ATT) framework.
-- You will be asked for permission before any cross-app tracking occurs.
+- The app may display advertisements provided by third-party ad networks.
+- Advertisements are **not** based on your health data. Your health data is never shared with advertisers.
+- We use Apple's App Tracking Transparency (ATT) framework. You will be asked for explicit permission before any cross-app tracking occurs.
 - You can manage tracking preferences in your device settings.
-
-We do not use health data for advertising purposes.
 
 ---
 
@@ -139,7 +110,7 @@ We do not use health data for advertising purposes.
 
 Rutuma is not intended for children under 13 years of age.
 
-We do not knowingly collect personal data from children under 13. If we discover such data has been collected, we will delete it promptly.
+We do not knowingly collect personal data from children under 13. If we discover such data has been collected, we will take steps to delete it promptly.
 
 ---
 
@@ -147,7 +118,7 @@ We do not knowingly collect personal data from children under 13. If we discover
 
 We may update this Privacy Policy from time to time.
 
-Any changes will be reflected by updating the “Last Updated” date.
+Any changes will be reflected by updating the "Last Updated" date at the top of this page.
 
 Continued use of the app after changes constitutes acceptance of the updated policy.
 
@@ -155,7 +126,7 @@ Continued use of the app after changes constitutes acceptance of the updated pol
 
 ## 11. Contact Us
 
-If you have any questions about this Privacy Policy or your data, contact:
+If you have any questions about this Privacy Policy, contact:
 
-[Insert Company Name]
-[Insert Support Email]
+**Team Rutuma**
+**support@rutuma.com**
