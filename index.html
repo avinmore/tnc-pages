@@ -3,56 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rutuma – Period & Ovulation Tracker. Your private, intelligent cycle companion. Track periods, predict ovulation, log symptoms, and stay in control of your health." />
   <title>Rutuma – Period & Ovulation Tracker</title>
   <style>
+    :root {
+      --pink: #D97A8F;
+      --pink-light: #FFB5A0;
+      --purple: #B8A4E0;
+      --yellow: #F4C842;
+      --dark: #1a1a1a;
+      --text: #3a3a3a;
+      --muted: #777;
+      --bg: #fff;
+      --surface: #fdf8f9;
+      --border: #f0e8eb;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a1a; }
-    header { background: linear-gradient(135deg, #D97A8F 0%, #B8A4E0 100%); padding: 60px 24px; text-align: center; color: #fff; }
-    header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }
-    header p { font-size: 1.1rem; opacity: 0.9; }
-    .container { max-width: 700px; margin: 0 auto; padding: 48px 24px; }
-    .cards { display: flex; flex-direction: column; gap: 16px; }
-    .card { border: 1.5px solid #e8e8e8; border-radius: 14px; padding: 24px 28px; text-decoration: none; color: #1a1a1a; display: flex; align-items: center; justify-content: space-between; transition: box-shadow 0.2s, border-color 0.2s; }
-    .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-color: #D97A8F; }
-    .card-text h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
-    .card-text p { font-size: 0.875rem; color: #666; }
-    .card-arrow { font-size: 1.2rem; color: #D97A8F; }
-    footer { text-align: center; padding: 32px 24px; font-size: 0.8rem; color: #999; border-top: 1px solid #f0f0f0; }
-    footer a { color: #D97A8F; text-decoration: none; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(217,122,143,0.12); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-icon { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+    .nav-name { font-size: 1.05rem; font-weight: 700; color: var(--pink); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 0.875rem; color: var(--text); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--pink); }
+
+    /* HERO */
+    .hero { position: relative; min-height: 92vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: 60px; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('header.jpg'); background-size: cover; background-position: center top; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(217,122,143,0.72) 0%, rgba(184,164,224,0.68) 55%, rgba(26,26,26,0.55) 100%); }
+    .hero-content { position: relative; z-index: 2; text-align: center; padding: 40px 24px; max-width: 720px; }
+    .hero-icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 16px 48px rgba(0,0,0,0.28); margin-bottom: 24px; object-fit: cover; }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.4); color: #fff; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; margin-bottom: 16px; backdrop-filter: blur(6px); }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 18px; letter-spacing: -0.02em; }
+    .hero h1 span { background: linear-gradient(90deg, #FFB5A0, #F4C842); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: clamp(1rem, 2.5vw, 1.2rem); color: rgba(255,255,255,0.88); margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: #fff; color: var(--pink); font-weight: 700; font-size: 0.95rem; padding: 13px 28px; border-radius: 50px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.18); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
+    .btn-ghost { background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.5); color: #fff; font-weight: 600; font-size: 0.95rem; padding: 12px 28px; border-radius: 50px; text-decoration: none; backdrop-filter: blur(4px); transition: background 0.2s; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.25); }
+    .hero-scroll { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2; color: rgba(255,255,255,0.6); font-size: 0.75rem; text-align: center; animation: bounce 2s infinite; }
+    .hero-scroll span { display: block; margin-top: 6px; font-size: 1.2rem; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* SECTIONS */
+    section { padding: 80px 24px; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
+    .section-title { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; color: var(--dark); line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.02em; }
+    .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+
+    /* ABOUT */
+    .about { background: var(--bg); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 52px; }
+    .about-image-wrap { position: relative; }
+    .about-image-wrap img { width: 100%; border-radius: 24px; object-fit: cover; box-shadow: 0 20px 60px rgba(217,122,143,0.22); }
+    .about-image-wrap::before { content:''; position:absolute; inset:-12px; border-radius:32px; background:linear-gradient(135deg,rgba(217,122,143,0.18),rgba(184,164,224,0.18)); z-index:-1; }
+    .about-text p { font-size: 1.05rem; color: var(--text); line-height: 1.8; margin-bottom: 20px; }
+    .stat-row { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
+    .stat-num { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+    .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+    /* FEATURES */
+    .features { background: var(--surface); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 52px; }
+    .feat-card { background: #fff; border-radius: 20px; padding: 30px 26px; border: 1.5px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(217,122,143,0.14); }
+    .feat-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 18px; }
+    .feat-icon.pink { background: linear-gradient(135deg, #fde8ed, #fcc8d4); }
+    .feat-icon.peach { background: linear-gradient(135deg, #fff0ea, #ffd8c8); }
+    .feat-icon.purple { background: linear-gradient(135deg, #f0ebff, #ddd0f8); }
+    .feat-icon.yellow { background: linear-gradient(135deg, #fffbe8, #fdedb8); }
+    .feat-icon.green { background: linear-gradient(135deg, #e8faf0, #b8f0d0); }
+    .feat-icon.blue { background: linear-gradient(135deg, #e8f4ff, #b8dcff); }
+    .feat-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .feat-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* PRIVACY HIGHLIGHT */
+    .privacy-highlight { background: linear-gradient(135deg, #1a1a2e 0%, #2d1b3d 100%); }
+    .privacy-highlight .section-tag { color: #FFB5A0; }
+    .privacy-highlight .section-title { color: #fff; }
+    .privacy-highlight .section-sub { color: rgba(255,255,255,0.65); }
+    .privacy-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .priv-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px 22px; }
+    .priv-item .icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .priv-item h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .priv-item p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* MISSION */
+    .mission { background: var(--bg); }
+    .mission-box { margin-top: 52px; background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%); border-radius: 28px; padding: 60px 52px; color: #fff; position: relative; overflow: hidden; }
+    .mission-box::before { content:''; position:absolute; top:-60px; right:-60px; width:280px; height:280px; background:rgba(255,255,255,0.08); border-radius:50%; }
+    .mission-box::after { content:''; position:absolute; bottom:-80px; left:-40px; width:220px; height:220px; background:rgba(255,255,255,0.05); border-radius:50%; }
+    .mission-box h3 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; margin-bottom: 20px; position: relative; z-index: 1; }
+    .mission-box p { font-size: 1.05rem; opacity: 0.9; line-height: 1.8; max-width: 680px; position: relative; z-index: 1; }
+
+    /* LEGAL LINKS */
+    .legal { background: var(--surface); }
+    .legal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 40px; }
+    .legal-card { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 22px 24px; text-decoration: none; color: var(--dark); display: flex; align-items: center; gap: 16px; transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
+    .legal-card:hover { box-shadow: 0 8px 28px rgba(217,122,143,0.14); border-color: var(--pink); transform: translateY(-2px); }
+    .legal-card-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; background: linear-gradient(135deg, #fde8ed, #fcc8d4); }
+    .legal-card-text h3 { font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
+    .legal-card-text p { font-size: 0.82rem; color: var(--muted); }
+    .legal-card-arrow { margin-left: auto; color: var(--pink); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* FOOTER */
+    footer { background: #1a1a2e; color: rgba(255,255,255,0.55); padding: 40px 24px; text-align: center; }
+    footer .footer-brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
+    footer .footer-brand img { width: 36px; height: 36px; border-radius: 9px; }
+    footer .footer-brand span { font-size: 1.1rem; font-weight: 700; color: #fff; }
+    footer p { font-size: 0.82rem; line-height: 1.8; }
+    footer a { color: #FFB5A0; text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* RESPONSIVE */
+    @media (max-width: 680px) {
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-image-wrap { display: none; }
+      .mission-box { padding: 36px 28px; }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Rutuma</h1>
-    <p>Period & Ovulation Tracker</p>
-  </header>
-  <div class="container">
-    <div class="cards">
-      <a class="card" href="privacy-policy.html">
-        <div class="card-text">
-          <h2>Privacy Policy</h2>
-          <p>How we handle and protect your data</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </a>
-      <a class="card" href="terms-of-use.html">
-        <div class="card-text">
-          <h2>Terms of Use</h2>
-          <p>Rules and conditions for using the app</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </a>
-      <a class="card" href="medical-disclaimer.html">
-        <div class="card-text">
-          <h2>Medical Disclaimer</h2>
-          <p>Important information about health predictions</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </a>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-brand" href="#">
+      <img class="nav-icon" src="app-icon.png" alt="Rutuma" />
+      <span class="nav-name">Rutuma</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#mission">Mission</a>
+      <a href="#legal">Legal</a>
     </div>
-  </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img class="hero-icon" src="app-icon.png" alt="Rutuma App Icon" />
+      <div class="hero-tag">iOS App &nbsp;·&nbsp; Free to Download</div>
+      <h1>Your Personal<br><span>Cycle Companion</span></h1>
+      <p class="hero-sub">Rutuma empowers women to understand, track, and take control of their menstrual health — privately, intelligently, and beautifully.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#about">Learn More</a>
+        <a class="btn-ghost" href="#legal">Legal &amp; Privacy</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll to explore <span>↓</span></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div>
+        <div class="section-tag">About Rutuma</div>
+        <h2 class="section-title">Designed for Every Woman's<br>Unique Cycle</h2>
+        <p class="section-sub">Rutuma is a comprehensive period and ovulation tracking app built with privacy, accuracy, and simplicity at its core.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-wrap">
+          <img src="header.jpg" alt="Rutuma – A peaceful wellness journey" />
+        </div>
+        <div class="about-text">
+          <p>Every woman's body is unique. Rutuma learns from your personal cycle data to deliver accurate predictions for your period, fertile window, and ovulation — no two users get the same experience.</p>
+          <p>Unlike most period trackers, <strong>Rutuma stores all your data entirely on your device</strong>. Your intimate health information never leaves your phone. There is no cloud sync to our servers, no data mining, no sharing with advertisers.</p>
+          <p>From cycle logging and symptom tracking to medicine reminders and sound therapy for wellness — Rutuma is the all-in-one health companion built around your needs.</p>
+          <div class="stat-row">
+            <div class="stat">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Private &amp; Local Storage</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">4+</div>
+              <div class="stat-label">Languages Supported</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">iOS</div>
+              <div class="stat-label">iPhone &amp; iPad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-tag">What Rutuma Does</div>
+      <h2 class="section-title">Everything You Need,<br>Nothing You Don't</h2>
+      <p class="section-sub">Rutuma combines smart cycle intelligence with daily wellness tools — all in one beautiful, easy-to-use app.</p>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon pink">🌸</div>
+          <h3>Period Tracking</h3>
+          <p>Log your period start and end dates. Rutuma learns your cycle pattern and predicts future periods with increasing accuracy over time.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon yellow">🌕</div>
+          <h3>Ovulation Prediction</h3>
+          <p>Know your fertile window before it arrives. Rutuma calculates ovulation using your unique cycle data and displays a visual moon-cycle wheel.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon peach">📋</div>
+          <h3>Symptom Logging</h3>
+          <p>Track mood, pain, energy, discharge, and 30+ custom symptoms. See patterns across your cycle at a glance in the Insights tab.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon purple">💊</div>
+          <h3>Medicine Reminders</h3>
+          <p>Never miss a pill or supplement. Set smart daily reminders for any medicine with custom schedules and snooze support.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon green">🔒</div>
+          <h3>Encrypted Data Backup</h3>
+          <p>Back up your entire cycle history as an encrypted file and restore it anytime — on a new device or after reinstalling the app.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon blue">🎵</div>
+          <h3>Sound Therapy</h3>
+          <p>Calming audio sessions curated for each phase of your cycle — from energizing morning sounds to sleep-inducing night music.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY HIGHLIGHT -->
+  <section class="privacy-highlight" id="privacy">
+    <div class="section-inner">
+      <div class="section-tag">Privacy First</div>
+      <h2 class="section-title">Your Health Data<br>Stays With You</h2>
+      <p class="section-sub">We built Rutuma on a simple principle: your intimate health data belongs to you and only you. Period.</p>
+      <div class="privacy-items">
+        <div class="priv-item">
+          <div class="icon">📱</div>
+          <h4>Device-Only Storage</h4>
+          <p>All cycle data, symptoms, and logs are stored exclusively on your device. We have zero access to it.</p>
+        </div>
+        <div class="priv-item">
+          <div class="icon">🚫</div>
+          <h4>No Data Mining</h4>
+          <p>We never sell, share, or use your health data for advertising. Your body is not a data product.</p>
+        </div>
+        <div class="priv-item">
+          <div class="icon">🔐</div>
+          <h4>Secure Backup</h4>
+          <p>When you back up to Google Drive, files are encrypted and stored only in your personal Drive app folder — inaccessible to anyone else.</p>
+        </div>
+        <div class="priv-item">
+          <div class="icon">✅</div>
+          <h4>ATT Compliant</h4>
+          <p>We follow Apple's App Tracking Transparency framework. Tracking only happens with your explicit consent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission" id="mission">
+    <div class="section-inner">
+      <div class="section-tag">Our Mission</div>
+      <h2 class="section-title">Empowering Women Through<br>Health Awareness</h2>
+      <p class="section-sub">We believe every woman deserves tools that respect their privacy and support their wellbeing.</p>
+      <div class="mission-box">
+        <h3>"Health awareness should be simple, private, and accessible to every woman — regardless of where she is in the world."</h3>
+        <p>At Team Rutuma, we are building a space where women feel safe to track their bodies honestly. We started Rutuma because we saw a gap: most period trackers were either too basic, or too invasive with user data. We wanted to create something that combined beautiful design, intelligent predictions, and uncompromising respect for privacy — all in a single app available globally. Our mission is to make personal health tracking effortless, joyful, and completely private for every woman.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL -->
+  <section class="legal" id="legal">
+    <div class="section-inner">
+      <div class="section-tag">Legal Documents</div>
+      <h2 class="section-title">Transparency &amp; Trust</h2>
+      <p class="section-sub">We are fully transparent about how Rutuma works, what data we use, and your rights as a user.</p>
+      <div class="legal-grid">
+        <a class="legal-card" href="privacy-policy.html">
+          <div class="legal-card-icon">🛡️</div>
+          <div class="legal-card-text">
+            <h3>Privacy Policy</h3>
+            <p>How we handle and protect your personal data</p>
+          </div>
+          <span class="legal-card-arrow">→</span>
+        </a>
+        <a class="legal-card" href="terms-of-use.html">
+          <div class="legal-card-icon" style="background: linear-gradient(135deg,#f0ebff,#ddd0f8);">📄</div>
+          <div class="legal-card-text">
+            <h3>Terms of Use</h3>
+            <p>Rules and conditions for using the app</p>
+          </div>
+          <span class="legal-card-arrow">→</span>
+        </a>
+        <a class="legal-card" href="medical-disclaimer.html">
+          <div class="legal-card-icon" style="background: linear-gradient(135deg,#fffbe8,#fdedb8);">⚕️</div>
+          <div class="legal-card-text">
+            <h3>Medical Disclaimer</h3>
+            <p>Important information about health predictions</p>
+          </div>
+          <span class="legal-card-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    &copy; 2026 Rutuma. Contact: <a href="mailto:support@rutuma.com">support@rutuma.com</a>
+    <div class="footer-brand">
+      <img src="app-icon.png" alt="Rutuma" />
+      <span>Rutuma</span>
+    </div>
+    <p>Period &amp; Ovulation Tracker &nbsp;·&nbsp; Available on iOS</p>
+    <p style="margin-top:8px;">
+      Questions? &nbsp;<a href="mailto:support@rutuma.com">support@rutuma.com</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="privacy-policy.html">Privacy Policy</a>
+      &nbsp;·&nbsp;
+      <a href="terms-of-use.html">Terms of Use</a>
+      &nbsp;·&nbsp;
+      <a href="medical-disclaimer.html">Medical Disclaimer</a>
+    </p>
+    <p style="margin-top:16px; font-size:0.75rem;">&copy; 2026 Team Rutuma. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
