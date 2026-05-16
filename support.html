@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Rutuma</title>
+  <meta name="description" content="Get help with Rutuma — Period & Ovulation Tracker. Contact our support team." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #D97A8F;
+      --pink-light: #FFB5A0;
+      --purple: #B8A4E0;
+      --yellow: #F4C842;
+      --dark: #1a1a1a;
+      --text: #3a3a3a;
+      --muted: #777;
+      --bg: #fff;
+      --surface: #fdf8f9;
+      --border: #f0e8eb;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(217,122,143,0.12);
+      padding: 0 32px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--dark);
+    }
+    .nav-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+    }
+    .nav-name {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em;
+    }
+
+    /* ── Header ── */
+    header {
+      margin-top: 60px;
+      background: linear-gradient(135deg, #D97A8F 0%, #B8A4E0 100%);
+      padding: 52px 24px 44px;
+      color: #fff;
+      text-align: center;
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.32);
+      border-radius: 24px; padding: 7px 16px 7px 11px;
+      color: #fff; text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      transition: background 0.15s ease, transform 0.12s ease;
+      backdrop-filter: blur(6px);
+      margin-bottom: 28px;
+    }
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateX(-3px);
+    }
+    .back-btn svg {
+      width: 16px; height: 16px; stroke: #fff;
+      stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .header-icon-wrap {
+      width: 72px; height: 72px; border-radius: 20px;
+      background: rgba(255,255,255,0.20);
+      border: 1.5px solid rgba(255,255,255,0.35);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 32px;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1rem; opacity: 0.85; font-weight: 400;
+    }
+
+    /* ── Main content ── */
+    main {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px 24px;
+      background: var(--surface);
+    }
+    .support-card {
+      background: #fff;
+      border-radius: 24px;
+      border: 1.5px solid var(--border);
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 16px 48px rgba(217,122,143,0.10);
+    }
+    .email-icon-wrap {
+      width: 64px; height: 64px; border-radius: 18px;
+      background: linear-gradient(135deg, #fde8ed, #fcc8d4);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 28px;
+    }
+    .support-card h2 {
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--dark); letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .support-card p {
+      font-size: 0.95rem; color: var(--muted);
+      line-height: 1.65; margin-bottom: 28px;
+    }
+    .email-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff; text-decoration: none;
+      font-size: 1rem; font-weight: 600;
+      padding: 14px 28px; border-radius: 50px;
+      transition: opacity 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+      box-shadow: 0 4px 18px rgba(217,122,143,0.35);
+    }
+    .email-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(217,122,143,0.45);
+    }
+    .email-btn svg {
+      width: 18px; height: 18px; stroke: #fff;
+      stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .email-plain {
+      display: block; margin-top: 16px;
+      font-size: 0.85rem; color: var(--muted);
+      text-decoration: none;
+    }
+    .email-plain:hover { color: var(--pink); }
+
+    .divider {
+      border: none; border-top: 1.5px solid var(--border);
+      margin: 32px 0;
+    }
+    .response-note {
+      display: flex; align-items: center; justify-content: center;
+      gap: 7px; font-size: 0.82rem; color: var(--muted);
+    }
+    .response-note svg {
+      width: 15px; height: 15px; stroke: var(--pink);
+      stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.55);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    .footer-brand {
+      display: flex; align-items: center; justify-content: center;
+      gap: 9px; margin-bottom: 10px;
+    }
+    .footer-brand img {
+      width: 28px; height: 28px; border-radius: 7px;
+    }
+    .footer-brand span {
+      font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.85);
+    }
+    footer a { color: #FFB5A0; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      nav { padding: 0 20px; }
+      header { padding: 40px 20px 36px; }
+      .support-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <img class="nav-icon" src="app-icon.png" alt="Rutuma" />
+      <span class="nav-name">Rutuma</span>
+    </a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Rutuma
+    </a>
+    <div class="header-icon-wrap">🌸</div>
+    <h1>Support</h1>
+    <p>We're here to help — reach out any time.</p>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="support-card">
+      <div class="email-icon-wrap">✉️</div>
+      <h2>Contact Support</h2>
+      <p>Have a question, feedback, or need help with your account? Send us an email and we'll get back to you.</p>
+
+      <a class="email-btn" href="mailto:support@rutuma.com">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <polyline points="2,4 12,13 22,4"/>
+        </svg>
+        support@rutuma.com
+      </a>
+      <a class="email-plain" href="mailto:support@rutuma.com">support@rutuma.com</a>
+
+      <hr class="divider" />
+
+      <p class="response-note">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12,6 12,12 16,14"/>
+        </svg>
+        We typically respond within 1–2 business days.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-brand">
+      <img src="app-icon.png" alt="Rutuma" />
+      <span>Rutuma</span>
+    </div>
+    <p>Period &amp; Ovulation Tracker · Available on iOS</p>
+    <p style="margin-top:8px;">
+      <a href="privacy-policy.html">Privacy Policy</a> ·
+      <a href="terms-of-use.html">Terms of Use</a> ·
+      <a href="medical-disclaimer.html">Medical Disclaimer</a>
+    </p>
+    <p style="margin-top:12px;">© 2026 Rutuma. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
