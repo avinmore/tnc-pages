@@ -55,11 +55,11 @@ Rutuma offers optional premium features via subscription. All payments are proce
 
 ## 5. Data Backup & Transfer
 
-Rutuma provides a backup feature that allows you to export your data as an **encrypted file**. This file can be used to transfer your data to another device if you change phones.
+Rutuma provides a backup feature that allows you to export your data as an **encrypted file**. This file can be used to transfer your data to another device or safeguard it for future use.
 
 - The backup file is generated locally on your device.
-- You choose how and where to share or store this file (e.g., AirDrop, Files app, email).
-- Rutuma does not upload, access, or retain any copy of your backup file.
+- You may save it to **iCloud Drive**, **Google Drive**, or any other location, or share it via AirDrop, the Files app, email, or other sharing options available on your device.
+- Rutuma does not upload, access, or retain any copy of your backup file. The choice of storage location and method is entirely yours.
 
 **Important:** Since all data is stored locally, if you delete the app or lose your device without creating a backup, your data cannot be recovered. Team Rutuma has no ability to retrieve your data.
 
