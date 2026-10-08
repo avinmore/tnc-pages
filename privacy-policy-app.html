@@ -32,7 +32,7 @@
 <body>
   <header>
     <h1>Privacy Policy</h1>
-    <p>Last Updated: 12 May 2026</p>
+    <p>Last Updated: 9 October 2026</p>
   </header>
   <div class="container">
 
@@ -57,7 +57,7 @@
     <hr>
 
     <h2>2. Authentication</h2>
-    <p>Rutuma supports optional sign-in via Apple or Google for convenience. Authentication is handled entirely by Apple and Google respectively. We do not receive, store, or have access to your passwords or account credentials. Authentication tokens are stored securely on your device using the iOS Keychain.</p>
+    <p>Rutuma supports optional sign-in via Apple or Google for convenience. Authentication is handled entirely by Apple and Google respectively. We do not receive, store, or have access to your passwords or account credentials. Authentication tokens are stored securely on your device using the iOS Keychain or Android's encrypted storage.</p>
 
     <hr>
 
@@ -76,17 +76,18 @@
     <hr>
 
     <h2>4. In-App Purchases</h2>
-    <p>Rutuma offers optional premium features via subscription. All payments are processed exclusively through the <strong>Apple App Store</strong>. We do not collect, process, or store any payment or billing information.</p>
+    <p>Rutuma offers optional premium features via subscription. All payments are processed exclusively through the <strong>Apple App Store</strong> (iPhone) or <strong>Google Play</strong> (Android). We do not collect, process, or store any payment or billing information.</p>
 
     <hr>
 
     <h2>5. Data Backup &amp; Transfer</h2>
-    <p>Rutuma provides a backup feature that allows you to export your data as an <strong>encrypted file</strong>. This file can be used to transfer your data to another device or safeguard it for future use.</p>
+    <p>Rutuma does not have servers that store your health data. Everything you log stays on your device unless you choose to back it up. You can back up your data in two ways:</p>
     <ul>
-      <li>The backup file is generated locally on your device.</li>
-      <li>You may save it to <strong>iCloud Drive</strong>, <strong>Google Drive</strong>, or any other location, or share it via AirDrop, the Files app, email, or other sharing options available on your device.</li>
-      <li>Rutuma does not upload, access, or retain any copy of your backup file. The choice of storage location and method is entirely yours.</li>
+      <li><strong>Backup file</strong> — Create an <strong>encrypted backup file</strong> (.rutuma) on your device and save or share it wherever you choose, such as iCloud Drive, Google Drive, the Files app, AirDrop or email. Rutuma never receives a copy of this file.</li>
+      <li><strong>Google Sign-In &amp; Sync (optional)</strong> — If you sign in with Google, Rutuma saves your encrypted backup directly to <strong>your own Google Drive account</strong>, in a private app folder that only Rutuma can access. Rutuma cannot see your other Google Drive files, and your backup is never sent to Rutuma's servers or to anyone else. Google Sign-In also provides your name and email address, which are used only to show which account is connected.</li>
+      <li><strong>Removing a Google Drive backup</strong> — Signing out only disconnects your account; your backup stays in your Google Drive so you can restore it later. To remove it, use <strong>Delete All Data</strong> in the app while signed in, or go to Google Drive → Settings → Manage apps → Rutuma → Delete hidden app data. You can revoke Rutuma's access at any time at myaccount.google.com/permissions.</li>
     </ul>
+    <p>Rutuma's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
     <p><strong>Important:</strong> Since all data is stored locally, if you delete the app or lose your device without creating a backup, your data cannot be recovered. Team Rutuma has no ability to retrieve your data.</p>
 
     <hr>
@@ -98,7 +99,10 @@
       <tr><td>Firebase Analytics</td><td>Google</td><td>Anonymous usage analytics</td></tr>
       <tr><td>Firebase Crashlytics</td><td>Google</td><td>Crash reporting and diagnostics</td></tr>
       <tr><td>Sign in with Google</td><td>Google</td><td>Optional authentication</td></tr>
-      <tr><td>App Store</td><td>Apple</td><td>In-App Purchases and subscriptions</td></tr>
+      <tr><td>App Store</td><td>Apple</td><td>In-App Purchases and subscriptions (iPhone)</td></tr>
+      <tr><td>Google Play Billing</td><td>Google</td><td>In-App Purchases and subscriptions (Android)</td></tr>
+      <tr><td>Google Drive</td><td>Google</td><td>Optional backup to your own Google account</td></tr>
+      <tr><td>Google AdMob</td><td>Google</td><td>Advertising (not shown to Premium or Ads-free users)</td></tr>
     </table>
     <p>These providers may process limited, anonymized technical information necessary to deliver their services. <strong>Your health data is never shared with any third party.</strong></p>
 
@@ -110,7 +114,7 @@
       <li><strong>View your data</strong> — All information is visible within the app.</li>
       <li><strong>Export your data</strong> — Use the built-in export feature (CSV, JSON, or PDF formats).</li>
       <li><strong>Delete your data</strong> — Delete the app to remove all data permanently, or use in-app settings to clear specific data.</li>
-      <li><strong>Backup your data</strong> — Use the encrypted backup feature before deleting.</li>
+      <li><strong>Backup your data</strong> — Use the encrypted backup feature before deleting. <strong>Delete All Data</strong> in the app also removes your Google Drive backup if you are signed in.</li>
     </ul>
     <p>No request to Team Rutuma is needed to exercise these rights — you are in complete control.</p>
     <p>For any questions or concerns, contact us at: <strong>support@rutuma.com</strong></p>
@@ -120,9 +124,9 @@
     <h2>8. Advertising &amp; Tracking</h2>
     <p>Rutuma does <strong>not</strong> engage in cross-app tracking.</p>
     <ul>
-      <li>The app may display advertisements provided by third-party ad networks.</li>
+      <li>The app may display advertisements provided by Google AdMob. Premium and Ads-free users do not see ads.</li>
       <li>Advertisements are <strong>not</strong> based on your health data. Your health data is never shared with advertisers.</li>
-      <li>We use Apple's App Tracking Transparency (ATT) framework. You will be asked for explicit permission before any cross-app tracking occurs.</li>
+      <li>On iPhone, we use Apple's App Tracking Transparency (ATT) framework. You will be asked for explicit permission before any cross-app tracking occurs. On Android, ads may use your device's advertising ID; you can reset it or opt out of personalized ads in your device settings (Settings → Privacy → Ads).</li>
       <li>You can manage tracking preferences in your device settings.</li>
     </ul>
 
